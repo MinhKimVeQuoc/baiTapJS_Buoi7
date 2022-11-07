@@ -1,8 +1,21 @@
-var listDanhSachMang = [1,2,3,4];
-    getEle("info_Mang").innerHTML = listDanhSachMang
+var listDanhSachMang = [];
+    // getEle("info_Mang").innerHTML = listDanhSachMang
 function getEle(id) {
     return document.getElementById(id)
 }
+
+function noiDung(n){
+    var test_noidung = true
+    if(n ==""){
+        alert("Mời nhập số")
+        test_noidung =false;
+    }
+    else{
+        test_noidung = true
+    }
+    return test_noidung
+}
+
 
 function nhapMang() {
 
@@ -12,7 +25,10 @@ function nhapMang() {
 }
 
 function tongCacSoDuong() {
-
+ if(noiDung(getEle("inputMang").value)== false)
+ {
+    return
+ }
     var tongSoDuong = 0;
     for (var i = 0; i <= listDanhSachMang.length; i++) {
         if (listDanhSachMang[i] > 0) {
@@ -24,6 +40,10 @@ function tongCacSoDuong() {
 }
 
 function demSoDuongTrongMang() {
+    if(noiDung(getEle("inputMang").value)== false)
+ {
+    return
+ }
     var dem = 0;
     for (var i = 0; i <= listDanhSachMang.length; i++) {
         if (listDanhSachMang[i] > 0) {
@@ -35,6 +55,10 @@ function demSoDuongTrongMang() {
 
 
 function soNhoNhat() {
+    if(noiDung(getEle("inputMang").value)== false)
+ {
+    return
+ }
     var smallNumber = listDanhSachMang[0];
     for (i = 0; i < listDanhSachMang.length; i++) {
         if (smallNumber > listDanhSachMang[i]) {
@@ -45,6 +69,10 @@ function soNhoNhat() {
 }
 
 function soDuongNhoNhat() {
+    if(noiDung(getEle("inputMang").value)== false)
+ {
+    return
+ }
     var smallNumberPlus = listDanhSachMang[0];
 
     for (var i = 0; i < listDanhSachMang.length; i++) {
@@ -60,19 +88,29 @@ function soDuongNhoNhat() {
 
 
 function test_SoChanCuoiMang() {
+    if(noiDung(getEle("inputMang").value)== false)
+ {
+    getEle("info_kiemSoChan_CuoiMang").innerHTML = -1
+    return
+ }
     var test_soChan = 0;
     for (var i = 0; i < listDanhSachMang.length; i++) {
         test_soChan = listDanhSachMang[i]
     }
-    if (test_soChan % 2 === 0) {
+    if (test_soChan % 2 === 0 && test_soChan > 0 ) {
         getEle("info_kiemSoChan_CuoiMang").innerHTML = test_soChan + " là số chẵn"
     }
-    if (listDanhSachMang = []) {
+    if (getEle("info_Mang").innerHTML =="") {
+        console.log(listDanhSachMang)
         getEle("info_kiemSoChan_CuoiMang").innerHTML = -1
     }
 }
 
 function doiViTriHaiSo() {
+    if(noiDung(getEle("inputMang").value)== false)
+ {
+    return
+ }
     var viTri_1 = getEle("inputViTri1").value * 1
     var viTri_2 = getEle("inputViTri2").value * 1
     var empty = 0;
@@ -81,10 +119,14 @@ function doiViTriHaiSo() {
     empty = listDanhSachMang[viTri_1]
     listDanhSachMang[viTri_1] = listDanhSachMang[viTri_2]
     listDanhSachMang[viTri_2] = empty
-    getEle("info_doiViTriHaiSo").innerHTML = listDanhSachMang
+    getEle("info_Mang").innerHTML = listDanhSachMang
 }
 
 function sapXep_NhoDenLon() {
+    if(noiDung(getEle("inputMang").value)== false)
+ {
+    return
+ }
     var empty = 0;
     for (var i = 0; i < listDanhSachMang.length; i++) {
         for (var j = i + 1; j < listDanhSachMang.length; j++) {
@@ -97,7 +139,7 @@ function sapXep_NhoDenLon() {
         }
     }
 
-    getEle("info_sapXep_NhoDenLon").innerHTML = listDanhSachMang
+    getEle("info_Mang").innerHTML = listDanhSachMang
 }
 
 function demo() {
@@ -199,14 +241,18 @@ function test_soNguyenTo_DauTien() {
 
     // }
     // Cách 2: gọi thêm hàm isprime(n)
-    if (listDanhSachMang = []) {
-        getEle("info_soNguyenTo_DauTien").innerHTML = -1
+    if(noiDung(getEle("inputMang").value)== false)
+    {
+       getEle("info_soNguyenTo_DauTien").innerHTML = -1
+       return
     }
     for (let i = 0; i < listDanhSachMang.length; i++) {
         if (isprime(listDanhSachMang[i]) == 1) {
             getEle("info_soNguyenTo_DauTien").innerHTML = listDanhSachMang[i]
             break
         };
+
+
 
         if (isprime(listDanhSachMang[i]) == 0) {
             getEle("info_soNguyenTo_DauTien").innerHTML = -1
@@ -249,6 +295,10 @@ function isprime(n) {
 
 
 function test_demSoNguyen() {
+    if(noiDung(getEle("inputMang").value)== false)
+ {
+    return
+ }
     //Cách 1:
     // var dem = " "
     // // số nguyên là số khác 0 và chia hết cho số khác như 1, 2,3 , vv  = 0
@@ -284,6 +334,10 @@ function test_demSoNguyen() {
 
 
 function soSanhSoLuong_soAmsoDuong() {
+    if(noiDung(getEle("inputMang").value)== false)
+ {
+    return
+ }
     var soAm = 0
     var soDuong = 0
     for (i = 0; i < listDanhSachMang.length; i++) {
